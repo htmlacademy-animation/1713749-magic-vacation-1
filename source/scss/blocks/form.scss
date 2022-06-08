@@ -2,6 +2,38 @@
   position: relative;
   display: flex;
   align-items: center;
+
+  &::after {
+    position: absolute;
+    content: "";
+    width: calc(100% - 21rem);
+    height: 100%;
+    top: 0;
+    right: 21rem;
+    background-color: $c-dark;
+
+    @media (min-width: $stop-scaling) {
+      width: calc(100% - 210px);
+    }
+
+    @media (orientation: portrait) {
+      width: calc(100% - 5rem);
+    }
+
+    @media (max-width: $tablet) and (orientation: landscape) {
+      width: calc(100% - 9 rem);
+    }
+
+    @media (max-width: $mobile) and (orientation: landscape) {
+      width: calc(100% - 5rem);
+    }
+
+    .active & {
+      width: 0;
+      left: 0;
+      transition: width 0.5s ease;
+    }
+  }
 }
 
 .form__label {
