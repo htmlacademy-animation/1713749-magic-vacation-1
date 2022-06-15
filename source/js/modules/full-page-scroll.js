@@ -8,6 +8,7 @@ export default class FullPageScroll {
 
     this.screenElements = document.querySelectorAll(`.screen:not(.screen--result)`);
     this.menuElements = document.querySelectorAll(`.page-header__menu .js-menu-link`);
+    this.screenPlug = document.querySelector(`.screen__plug`);
 
     this.activeScreen = 0;
     this.onScrollHandler = this.onScroll.bind(this);
@@ -52,14 +53,32 @@ export default class FullPageScroll {
   }
 
   changeVisibilityDisplay() {
-    this.screenElements.forEach((screen) => {
-      screen.classList.add(`screen--hidden`);
-      screen.classList.remove(`active`);
-    });
-    this.screenElements[this.activeScreen].classList.remove(`screen--hidden`);
-    setTimeout(() => {
-      this.screenElements[this.activeScreen].classList.add(`active`);
-    }, 100);
+    const currentScreen = this.screenElements[this.activeScreen].classList.contains(`screen--prizes`);
+    const screenStory = [...this.screenElements].find((element) => element.classList.contains(`screen--story`) && element.classList.contains(`active`));
+
+    if (currentScreen && screenStory) {
+      this.screenPlug.classList.add(`screen__plug--active`);
+
+      screenStory.classList.remove(`active`);
+      screenStory.addEventListener(`transitionend`, () => {
+        screenStory.classList.add(`screen--hidden`);
+        this.screenElements[this.activeScreen].classList.remove(`screen--hidden`);
+        setTimeout(() => {
+          this.screenElements[this.activeScreen].classList.add(`active`);
+        }, 100);
+      });
+    } else {
+      this.screenPlug.classList.remove(`screen__plug--active`);
+
+      this.screenElements.forEach((screen) => {
+        screen.classList.add(`screen--hidden`);
+        screen.classList.remove(`active`);
+      });
+      this.screenElements[this.activeScreen].classList.remove(`screen--hidden`);
+      setTimeout(() => {
+        this.screenElements[this.activeScreen].classList.add(`active`);
+      }, 100);
+    }
   }
 
   changeActiveMenuItem() {
