@@ -140,7 +140,7 @@
   align-items: center;
   opacity: 0;
   transform: translateX(-3rem);
-  transition: opacity 0.9s cubic-bezier(.21,.76,.69,.97), transform 0.9s cubic-bezier(.21,.76,.69,.97);
+  transition: opacity 0.9s cubic-bezier(.21,.76,.69,.97) 0.1s, transform 0.9s cubic-bezier(.21,.76,.69,.97) 0.1s;
 
   body.loaded & {
     opacity: 1;
@@ -286,7 +286,7 @@
         body.loaded & {
           width: 100%;
           left: 0;
-          transition-delay: 0.9s;
+          transition-delay: 0.3s;
         }
       }
     }
