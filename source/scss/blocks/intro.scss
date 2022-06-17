@@ -115,7 +115,12 @@
 
   p {
     margin: 0;
-    animation: fade-in 1s ease;
+    opacity: 0;
+    animation-name: fade-in;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-delay: 0.8s;
+    animation-fill-mode: forwards;
   }
 
   svg {
@@ -167,7 +172,7 @@
 @keyframes fade-in {
   from {
     opacity: 0;
-    transform: translateY(100px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
