@@ -261,56 +261,7 @@
     left: unset;
     transform: none;
     width: 34%;
-    animation: width .4s 1s ease-in, opacity .5s .9s ease;
+    animation: width .4s 1s ease-in, fadeIn .5s .9s ease;
     animation-fill-mode: both;
-  }
-}
-
-@keyframes slide {
-  from {
-    opacity: 0;
-    transform: translateX(20px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes scale {
-  from {
-    transform: scale3d(0, 0, 0);
-  }
-  to {
-    transform: scale3d(1, 1, 1);
-    opacity: 1;
-  }
-}
-
-@keyframes fade-text {
-  from {
-    color: transparent;
-  }
-  to {
-    color: $c-dark;
-  }
-}
-
-@keyframes width {
-  from {
-    width: 33%;
-  }
-  to {
-    width: 100%;
-  }
-}
-
-@keyframes opacity {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
   }
 }
