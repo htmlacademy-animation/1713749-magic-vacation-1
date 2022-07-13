@@ -147,21 +147,26 @@
     transform: translateX(0);
   }
 
-  @media (max-width: $tablet) and (orientation: portrait) {
+  @media (max-width: $tablet) {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    transform: translateX(-100%);
     flex-direction: column;
     align-items: flex-start;
     padding: 4rem 3.5rem;
     color: $c-dark;
     background-color: $c-light;
 
-    .page-header--menu-opened & {
+    body.loaded & {
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+
+    body.loaded .page-header--menu-opened & {
       transform: translateX(0);
+      opacity: 1;
     }
   }
 
@@ -171,7 +176,6 @@
     left: 0;
     right: 0;
     bottom: 0;
-    transform: translateX(-100%);
     flex-direction: column;
     align-items: flex-start;
     padding: 2rem 3.5rem;
@@ -179,10 +183,6 @@
     color: $c-dark;
     background-color: $c-light;
     overflow-y: auto;
-
-    .page-header--menu-opened & {
-      transform: translateX(0);
-    }
   }
 }
 

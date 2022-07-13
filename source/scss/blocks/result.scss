@@ -39,19 +39,61 @@
     right: -1rem;
   }
 
-  picture {
-    display: block;
-    width: 100%;
-    height: 100%;
-  }
-
   img {
     display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
+    position: absolute;
   }
+
+  .image__leaf-blue-1 {
+    transform-origin: bottom left;
+    animation: fadeIn 0.4s ease 1.4s both, leafRight 2s ease-in-out 1.4s both;
+
+    @media (max-width: $mobile) {
+      width: 12rem;
+      animation: fadeIn 0.4s ease 1.4s both, leafRightMobile 2s ease-in-out 1.4s both;
+    }
+	}
+
+	.image__leaf-blue-2 {
+    transform-origin: bottom right;
+    animation: fadeIn 0.4s ease 1.4s both, leafLeft 2s ease-in-out 1.4s both;
+
+    @media (max-width: $mobile) {
+      width: 12rem;
+      animation: fadeIn 0.4s ease 1.4s both, leafLeftMobile 2s ease-in-out 1.4s both;
+    }
+	}
+
+	.image__leaf-green {
+    transform-origin: bottom left;
+    animation: fadeIn 0.4s ease 1.4s both, leafGreen 2s ease-in-out 1.4s both;
+
+    @media (max-width: $mobile) {
+      width: 10rem;
+      animation: fadeIn 0.4s ease 1.4s both, leafGreenMobile 2s ease-in-out 1.4s both;
+    }
+	}
+
+	.image__suitcase {
+    height: 23em;
+    animation: suitcase 0.8s ease-out 1s both, fadeIn 0.4s ease-in-out 1s both;
+    opacity: 0;
+
+    @media (max-width: $mobile) {
+      height: 20rem;
+    }
+	}
+
+	.image__flamingo {
+    height: 15em;
+    animation: flamingo 4s ease-in-out 1s both;
+    transform-origin: 50% 60%;
+
+    @media (max-width: $mobile) {
+      height: 10rem;
+      animation: flamingoMobile 4s ease-in-out 1s both;
+    }
+	}
 }
 
 .result__title {
